@@ -1,0 +1,89 @@
+$grey: #8d9bad;
+$white: #ffffffff;
+$darkBlack: #161c24;
+$orange: #fa541c;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.head {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  margin: 0;
+  background-color: $darkBlack;
+  height: 100%;
+  width: 100%;
+  padding: 25px 0;
+  top: 0;
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+}
+.shrink {
+  padding: 20px 0;
+
+  background-color: rgba(22, 28, 36, 0.9);
+  //background-color: aqua;
+}
+ul {
+  width: 50%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  //   align-items: flex-end;
+  justify-content: space-around;
+  //   text-align: center;
+}
+ul li {
+  z-index: 9999;
+  padding-top: 5px;
+  color: $white;
+  font-family: Poppins-Regular;
+  list-style-type: none;
+  //   display: inline-block;
+  padding-left: 10px;
+}
+
+.btnGrp {
+  width: calc(100% - 55%);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  .signin:hover {
+    background-color: $darkBlack;
+    color: $white;
+    border: 1px solid $white;
+  }
+  .signup:hover {
+    background-color: #d13d0c;
+    border: 1px solid #d13d0c;
+  }
+}
+.btnGrp .signin {
+  background-color: $darkBlack;
+  color: $white;
+  margin-right: 8px;
+  border: 1px solid grey;
+  transition: 0.3s;
+}
+.btnGrp .signup {
+  color: $white;
+  background-color: $orange;
+  border: 1px solid $orange;
+}
+.btn {
+  font-family: Poppins-SemiBold;
+  padding: 7px;
+  width: 15%;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn:hover {
+  cursor: pointer;
+  font-family: Poppins-SemiBold;
+  padding: 7px;
+  width: 15%;
+  border-radius: 8px;
+}
