@@ -1,6 +1,7 @@
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
+import EmployeeContext from "../contexts/EmployeeContext";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import DoneIcon from "@mui/icons-material/Done";
 import {
@@ -22,7 +23,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import React from "react";
+import React, { useContext } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { ROUTELIST, employee } from "./TableDatas";
 import { useFormik } from "formik";
@@ -59,48 +60,15 @@ const TextFieldShow = ({ formik, setShowField }) => {
   );
 };
 function EmployeeDatas() {
-  const [formikData, setFormikData] = React.useState([]);
   const [showField, setShowField] = React.useState(false);
   const data = employee;
+  const { formik, addEmployeeData, deleteEmployeeData, formikData } =
+    useContext(EmployeeContext);
   const navigate = useNavigate();
   const showTextField = () => {
     setShowField(true);
   };
 
-  const formik = useFormik({
-    initialValues: {
-      id: "",
-      Name: "",
-    },
-    onSubmit: (values) => {
-      console.log("values", values);
-      const saveValues = { ...values };
-      setFormikData([...formikData, saveValues]);
-      formik.handleReset();
-      setShowField(false);
-    },
-  });
-  // editContent = () => {};
-  // const getValuesFromFormik = (items) => {
-  //   const saveFromSubmit = [...items];
-  //   setFormikData([...formikData, saveFromSubmit]);
-  //   console.log("formikData from current State", formikData);
-  // };
-  function removeTableRow(idValue) {
-    const valueF = [...formikData];
-    valueF.splice(idValue, 1);
-    setFormikData(value);
-    // console.log(idValue);
-    // const passData = [...formikData];
-    // const index1 = formikData.findIndex((item) => {
-    //   return item.id === idValue;
-    // });
-    // console.log("passData", passData, "index1", index1);
-    // if (index1 >= 0) {
-    //   passData.splice(index1, 1);
-    // }
-    // setFormikData([...passData]);
-  }
   return (
     <>
       <Grid container md={12}>
